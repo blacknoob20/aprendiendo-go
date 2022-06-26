@@ -1,0 +1,20 @@
+version: '2.2'
+services:
+  go:
+    container_name: golang
+    image: golang:alpine
+    #cpuset: '1'
+    #mem_limit: 512m
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    #environment:
+    # - PORT=80
+    volumes:
+      - $PWD/:/go
+    networks:
+      - net
+    #ports:
+    #  - '80:80'
+    #  - '8080:8080'
+networks:
+  net:
